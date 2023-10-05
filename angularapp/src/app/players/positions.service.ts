@@ -10,7 +10,7 @@ import { Position } from "./position";
 })
 export class PositionsService {
 
-  public apiURL = "https://localhost:7028/api";
+  public apiURL = "https://8080-effddfdaee305784872cefcdfcfacecbfafone.premiumproject.examly.io/api";
 
   constructor(private httpClient: HttpClient) { }
 

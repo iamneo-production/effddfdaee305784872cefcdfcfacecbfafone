@@ -10,7 +10,7 @@ import { Player } from "./player";
 })
 export class PlayersService {
 
-  public apiURL = "https://localhost:7028/api";
+  public apiURL = "https://8080-effddfdaee305784872cefcdfcfacecbfafone.premiumproject.examly.io/api";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
