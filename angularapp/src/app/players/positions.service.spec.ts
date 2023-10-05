@@ -1,16 +1,44 @@
-// import { TestBed } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { PositionsService } from './positions.service';
+import { Position } from './position';
 
-// import { PositionsService } from './positions.service';
+describe('PositionsService', () => {
+  let service: PositionsService;
+  let httpMock: HttpTestingController;
 
-// describe('PositionsService', () => {
-//   let service: PositionsService;
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [PositionsService],
+    });
+    service = TestBed.inject(PositionsService);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({});
-//     service = TestBed.inject(PositionsService);
-//   });
+  fit('PositionsService_should_be_created', () => {
+    expect(service).toBeTruthy();
+  });
 
-//   it('should be created', () => {
-//     expect(service).toBeTruthy();
-//   });
-// });
+  fit('PositionsService_return_positions_from_API', () => {
+    const mockPositions: Position[] = [
+      { id: 1, name: 'Forward' },
+      { id: 2, name: 'Midfielder' },
+    ];
+
+    service.getPositions().subscribe((positions) => {
+      expect(positions).toEqual(mockPositions);
+    });
+
+    const req = httpMock.expectOne(service.apiURL + '/positions');
+    expect(req.request.method).toBe('GET');
+    req.flush(mockPositions);
+    // console.log("llllllllll"+req.request);
+
+  });
+
+
+  afterEach(() => {
+    httpMock.verify();
+  });
+});

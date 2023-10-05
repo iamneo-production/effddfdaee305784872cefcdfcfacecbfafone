@@ -37,11 +37,11 @@ describe('DetailsComponent', () => {
     router = TestBed.inject(Router);
   });
 
-  it('should create', () => {
+  fit('DetailsComponent_should_create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load player details', () => {
+  fit('DetailsComponent_should_load_player_details', () => {
     const playerData = {
       id: 1,
       name: 'Test Player',
@@ -60,32 +60,32 @@ describe('DetailsComponent', () => {
     expect(component.player).toEqual(playerData);
   });
 
-  it('should display player goals in list item', fakeAsync(() => {
-    const playerData = {
-      id: 1,
-      name: 'Test Player',
-      shirtno: 10,
-      position: { id: 1, name: 'Forward' },
-      appearances: 20,
-      goals: 10,
-    };
+  // fit('DetailsComponent_should_display_player_goals_in_list_item', fakeAsync(() => {
+  //   const playerData = {
+  //     id: 1,
+  //     name: 'Test Player',
+  //     shirtno: 10,
+  //     position: { id: 1, name: 'Forward' },
+  //     appearances: 20,
+  //     goals: 10,
+  //   };
 
-    // Mock the getPlayer method to return an observable of playerData
-    playersService.getPlayer.and.returnValue(of(playerData));
+  //   // Mock the getPlayer method to return an observable of playerData
+  //   playersService.getPlayer.and.returnValue(of(playerData));
 
-    // Call ngOnInit explicitly to trigger the lifecycle hook
-    component.ngOnInit();
+  //   // Call ngOnInit explicitly to trigger the lifecycle hook
+  //   component.ngOnInit();
 
-    // Use tick to simulate the passage of time
-    tick();
-    fixture.detectChanges(); // Detect changes after tick
+  //   // Use tick to simulate the passage of time
+  //   tick();
+  //   fixture.detectChanges(); // Detect changes after tick
 
-    const compiled = fixture.nativeElement;
-    const goalsListItem = compiled.querySelector('li:nth-child(5)');
-    expect(goalsListItem.textContent).toContain('Goals: 10');
-  }));
+  //   const compiled = fixture.nativeElement;
+  //   const goalsListItem = compiled.querySelector('li:nth-child(5)');
+  //   expect(goalsListItem.textContent).toContain('Goals: 10');
+  // }));
 
-it('should display player name in h4 element', fakeAsync(() => {
+fit('DetailsComponent_should_display_player_name_in_h4_element', fakeAsync(() => {
   const playerData = {
     id: 1,
     name: 'Test Player',
@@ -110,7 +110,7 @@ it('should display player name in h4 element', fakeAsync(() => {
   expect(h4Element.textContent).toContain('Test Player');
 }));
 
-it('should display player ID in list item', fakeAsync(() => {
+fit('DetailsComponent_should_display_player_ID_in_list_item', fakeAsync(() => {
   const playerData = {
     id: 1,
     name: 'Test Player',
@@ -135,7 +135,7 @@ it('should display player ID in list item', fakeAsync(() => {
   expect(idListItem.textContent).toContain('Id: 1');
 }));
 
-it('should display player shirt number in list item', fakeAsync(() => {
+fit('DetailsComponent_should_display_player_shirt_number_in_list_item', fakeAsync(() => {
   const playerData = {
     id: 1,
     name: 'Test Player',
@@ -160,7 +160,7 @@ it('should display player shirt number in list item', fakeAsync(() => {
   expect(shirtnoListItem.textContent).toContain('Shirt No: 10');
 }));
 
-it('should display player position in list item', fakeAsync(() => {
+fit('DetailsComponent_should_display_player_position_in_list_item', fakeAsync(() => {
   const playerData = {
     id: 1,
     name: 'Test Player',
@@ -185,7 +185,7 @@ it('should display player position in list item', fakeAsync(() => {
   expect(positionListItem.textContent).toContain('Position: Forward');
 }));
 
-it('should display player appearances in list item', fakeAsync(() => {
+fit('DetailsComponent_should_display_player_appearances_in_list_item', fakeAsync(() => {
   const playerData = {
     id: 1,
     name: 'Test Player',
@@ -210,7 +210,7 @@ it('should display player appearances in list item', fakeAsync(() => {
   expect(appearancesListItem.textContent).toContain('Appearances: 20');
 }));
 
-it('should display player goals in list item', fakeAsync(() => {
+fit('DetailsComponent_should_display_player_goals_in_list_item', fakeAsync(() => {
   const playerData = {
     id: 1,
     name: 'Test Player',
@@ -235,7 +235,7 @@ it('should display player goals in list item', fakeAsync(() => {
   expect(goalsListItem.textContent).toContain('Goals: 10');
 }));
 
-  it('should handle async loading of player details', fakeAsync(() => {
+  fit('DetailsComponent_should_handle_async_loading_of_player_details', fakeAsync(() => {
     const playerData = {
       id: 1,
       name: 'Test Player',

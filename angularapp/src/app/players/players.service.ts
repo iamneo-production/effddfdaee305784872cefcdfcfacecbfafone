@@ -10,7 +10,7 @@ import { Player } from "./player";
 })
 export class PlayersService {
 
-  private apiURL = "https://localhost:7028/api";
+  public apiURL = "https://localhost:7028/api";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
