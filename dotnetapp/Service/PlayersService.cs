@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 namespace dotnetapp.Service;
 public class PlayersService : IPlayersService
 {
-    private readonly BasketballContext _context;
+    private readonly BasketballdbContext _context;
 
-    public PlayersService(BasketballContext context)
+    public PlayersService(BasketballdbContext context)
     {
         _context = context;
     }

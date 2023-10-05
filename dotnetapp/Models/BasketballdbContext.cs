@@ -10,7 +10,7 @@ public partial class BasketballdbContext : DbContext
     {
     }
 
-    public BasketballContext(DbContextOptions<BasketballContext> options)
+    public BasketballdbContext(DbContextOptions<BasketballdbContext> options)
         : base(options)
     {
     }
